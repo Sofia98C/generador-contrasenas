@@ -28,7 +28,7 @@ Crypta es una herramienta simple y minimalista que permite generar contraseñas 
 - Elegir el largo de la contraseña (6 a 40 caracteres)
 - Activar o desactivar : mayúsculas, minúsculas, números y símbolos
 - Indicador visual de seguridad (Débil / Regular / Buena / Muy segura)
--  Botón para copiar al portapapeles con un clic
+- Botón para copiar al portapapeles con un clic
 - Sin dependencia externas 
 - 100% local, sin conexión a servidores externos
 
@@ -84,7 +84,7 @@ http://localhost:8080
 ### 5. Detener el contenedor 
 
 ```bash
-docker stop $(docker ps -q --filter ancestor=genpass)
+docker stop $(docker ps -q --filter ancestor=crypta)
 ```
 
 ---
