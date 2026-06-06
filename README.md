@@ -59,7 +59,7 @@ generador-contrasenas/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/Sofia98C/Generador-de-contrase-as---Crypta
+git clone https://github.com/Sofia98C/generador-contrasenas
 cd generador-contrasenas
 ```
 
@@ -88,3 +88,84 @@ docker stop $(docker ps -q --filter ancestor=genpass)
 ```
 
 ---
+
+## Opción 2 — Correr directo desde Docker Hub
+
+Sin necesidad de clonar el repositorio ni buildear nada:
+
+```bash
+docker pull 587868/crypta
+docker run -p 8080:80 587868/crypta
+```
+
+Abrí `http://localhost:8080` y la app está lista.
+
+---
+
+## Capturas de pantalla 
+
+### Repositorio en GitHub 
+
+> ![Repositorio en GitHub](<screenshots/Captura de pantalla 2026-06-06 145622.png>)      
+
+### Construcción de la imagen
+```bash
+docker build -t crypta .
+```
+> ![Construcción de la imagen](<screenshots/Captura de pantalla 2026-06-05 214123.png>)
+
+### Ejecución del contenedor
+
+```bash
+docker run -p 8080:80 crypta
+```
+> ![Ejecución del contenedor](<screenshots/Captura de pantalla 2026-06-05 214410.png>)
+
+### Aplicación funcionando
+>![Aplicación funcionando](<screenshots/Captura de pantalla 2026-06-05 214537.png>)
+
+---
+
+## Opción 2 — Docker Hub
+
+### Repositorio en Docker Hub
+> ![Repositorio en Docker Hub](<screenshots/Captura de pantalla 2026-06-05 220224.png>)
+
+### Construcción de la imagen con tu usuario de Docker Hub
+```bash
+docker build -t 587868/crypta .
+```
+>![ Construcción de la imagen ](<screenshots/Captura de pantalla 2026-06-05 215804.png>)
+
+### Subir la imagen a Docker Hub 
+```bash
+docker push 587868/crypta
+```
+>![Subir la imagen a Docker Hub](<screenshots/Captura de pantalla 2026-06-05 220032.png>)
+
+### Cuando cualquiera baja la imagen desde Docker Hub
+```bash
+docker pull 587868/crypta
+```
+>![Bajar la imagen de Docker](screenshots/image.png)
+
+### Aplicación funcionando
+>![Aplicación funcionando](<screenshots/Captura de pantalla 2026-06-05 214537-1.png>)
+
+##  Cómo funciona el Dockerfile
+
+```dockerfile
+FROM nginx:alpine        # imagen base liviana de Nginx
+COPY index.html ...      # copia los archivos al contenedor
+EXPOSE 80                # expone el puerto 80
+CMD ["nginx", ...]       # arranca el servidor
+```
+
+---
+
+## Desarrollado por 
+
+**Sofia Contini**
+Trabajo Práctico N°1 — Git y Docker 
+Materia: Ingeniería de Software
+
